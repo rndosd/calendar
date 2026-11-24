@@ -6,7 +6,7 @@
 <title>메신저 캘린더 · 브리티·GOE 쪽지에서 할 일 찾기</title>
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
-<link rel="stylesheet" href="style.css?v=notes">
+<link rel="stylesheet" href="style.css?v=install">
 <link rel="stylesheet" href="cover.css?v=5">
 </head>
 <body>
@@ -50,7 +50,7 @@
     <a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/goe-app.svg" alt="">GOE 메신저용<span>ZIP ↓</span></a>
   </div>
 
-  <a class="corner video-card" id="feature-video" href="https://youtu.be/txckUF8Gg6w" data-youtube-id="txckUF8Gg6w" aria-haspopup="dialog">
+  <a class="corner video-card" id="feature-video" href="https://youtu.be/txckUF8Gg6w" data-youtube-id="txckUF8Gg6w" data-video-title="기능 소개 영상" aria-haspopup="dialog">
     <div class="thumb">
       <span class="play" aria-hidden="true"></span>
       <span class="label"><b>기능 소개 영상</b>브리티·GOE 메신저 캘린더</span>
@@ -116,7 +116,10 @@
           <li><div><b>PC 보호 창이 뜨면</b><span>‘추가 정보’를 누른 뒤 ‘실행’을 선택하세요. 앱을 열면 AI 연결과 메신저 연결 순서가 나와요.</span></div></li>
         </ol>
       </div>
-      <a class="yt" href="#start"><span>설치 영상 · 곧 공개</span></a>
+      <div>
+        <a class="yt" id="install-video" href="https://youtu.be/_hH_5xYOfBw" data-youtube-id="_hH_5xYOfBw" data-video-title="설치 영상 · GOE 화면 예시" aria-haspopup="dialog" aria-describedby="install-brity"><span>설치 영상 보기 · GOE 화면 예시</span></a>
+        <p class="install-note" id="install-brity"><strong>브리티를 쓰신다면</strong> 메신저의 환경설정 → 일반 → 뷰 모드에서 <strong>원 뷰</strong>로 바꾼 뒤, 캘린더에서 <strong>브리티 연결</strong>을 누르세요.</p>
+      </div>
     </div>
   </section>
 
@@ -142,7 +145,7 @@ const shot = location.search.includes('shot');
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
-<script src="cover.js?v=2" defer></script>
+<script src="cover.js?v=3" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {

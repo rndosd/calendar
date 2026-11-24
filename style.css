@@ -98,10 +98,11 @@ img { display: block; max-width: 100%; height: auto; }
 .start li::before { counter-increment: s; content: counter(s); font-weight: 700; color: var(--accent); }
 .start li b { display: block; font-size: 18px; margin-bottom: 2px; }
 .start li span { color: var(--ink-2); font-size: 15.5px; }
-.yt { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #1f1c17 url(img/hero-tight.webp) left top / cover; }
-.yt::before { content: ''; position: absolute; inset: 0; background: rgba(20, 18, 14, .55); }
+.yt { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #eae3d5 url(img/install-poster.webp) center / cover; }
+.yt::before { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(20, 18, 14, .8)); }
 .yt::after { content: ''; position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6v12l10-6z' fill='%23c2412d'/%3E%3C/svg%3E") 56% 50% / 30px no-repeat; }
 .yt span { position: absolute; left: 20px; bottom: 16px; z-index: 1; color: #fff; font-weight: 700; }
+.install-note { margin: 14px 0 0; color: var(--ink-2); font-size: 15.5px; }
 
 .faq { padding-top: 120px; padding-bottom: 120px; }
 .faq details { border-top: 1px solid var(--line); }
