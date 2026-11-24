@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사용 설명서 · 메신저 캘린더</title>
+<meta name="description" content="메신저 캘린더 사용 설명서: 설치, 연결, 쪽지 확인과 답장, 일정 정리, 업무 추가, AI에게 맡기기">
+<link rel="icon" href="img/app.svg">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+
+<header class="g-top"><div class="in">
+  <a class="logo" href="index.html"><img src="img/app.svg" alt="">메신저 캘린더<span>사용 설명서</span></a>
+  <nav>
+    <a href="index.html#features">기능</a>
+    <a href="index.html#start">시작하기</a>
+    <a href="index.html#faq">도움말</a>
+    <a class="get" href="index.html#get">받기</a>
+  </nav>
+</div></header>
+
+<section class="g-head">
+  <div></div>
+  <div>
+    <div class="eyebrow">사용 설명서</div>
+    <h1>처음 켜는 날부터<br><b>매일 쓰는 법까지</b></h1>
+    <p>설치와 연결은 한 번만 하면 됩니다. 그다음부터는 달력을 보고, 쪽지를 확인하고, 끝내면 돼요.</p>
+    <div class="meta"><span>0.6.3 기준</span><span>브리티판·GOE판 공통</span><span>읽는 데 10분</span></div>
+  </div>
+</section>
+
+<div class="g-body">
+  <aside class="toc">
+    <ol>
+      <li><a href="#setup">처음 시작</a></li>
+      <li><a href="#screen">화면 읽는 법</a></li>
+      <li><a href="#note">쪽지 확인과 답장</a></li>
+      <li><a href="#batch">일정 고치기<span class="new">새로</span></a></li>
+      <li><a href="#add">업무 추가</a></li>
+      <li><a href="#school">학교 일정·휴대폰</a></li>
+      <li><a href="#ai">AI에게 맡기기</a></li>
+      <li><a href="#look">보기와 꾸미기</a></li>
+      <li><a href="#keep">업데이트와 옮기기</a></li>
+    </ol>
+    <a class="side-video" href="index.html#start"><i></i><span>사용법 영상<small>곧 공개합니다</small></span></a>
+  </aside>
+
+  <article class="doc">
+    <div class="whatsnew">
+      <h2>이번 판에서 달라진 것 <span>0.6.3</span></h2>
+      <ul>
+        <li><span>달력에서 <a href="#batch">묶어서 편집</a>을 누르면 하루나 일주일의 업무를 모아 날짜·시간·완료를 한 번에 고칩니다.</span></li>
+        <li><span>남은 할 일을 모두 완료하거나 공지를 확인하면 다음 쪽지가 열립니다. 방금 한 처리는 되돌릴 수 있어요.</span></li>
+        <li><span>달력 위에서 <a href="#look">월간과 목록</a>을 바꾸고, 보기 설정에서 주 높이를 조절할 수 있습니다.</span></li>
+        <li><span>업무 추가에서 <a href="#add">메모로 적으면</a> AI가 정리한 후보를 고쳐 필요한 것만 등록합니다.</span></li>
+      </ul>
+    </div>
+
+    <section class="chap" id="setup">
+      <div class="num">01</div>
+      <h2>처음 시작</h2>
+      <p>받은 ZIP을 풀고, AI를 연결한 다음, 메신저를 연결합니다. 처음 한 번만 하면 되고 15분 정도 걸립니다.</p>
+      <h3>열기</h3>
+      <ol class="steps">
+        <li><span>받은 ZIP을 오른쪽 클릭해 <span class="ui">모두 압축 풀기</span>. 풀지 않고 안에서 열면 실행되지 않아요.</span></li>
+        <li><span>푼 폴더에서 <span class="ui">브리티 메신저 캘린더</span>(GOE판은 <span class="ui">GOE 메신저 캘린더</span>)를 두 번 누릅니다.</span></li>
+        <li><span>파란 <b>Windows의 PC 보호</b> 창이 뜨면 <span class="ui">추가 정보</span> → <span class="ui">실행</span>. 처음 한 번만 나와요.</span></li>
+      </ol>
+      <h3>AI 연결</h3>
+      <p>AI를 먼저 연결하세요. AI 없이 메신저부터 연결하면 쪽지가 날짜 없이 제목 그대로 할 일에 쌓입니다. 위쪽 <span class="ui">AI 연결</span>을 누르고 아래에서 하나를 고릅니다.</p>
+      <table class="opts">
+        <thead><tr><th>연결 방식</th><th>이런 분께</th></tr></thead>
+        <tbody>
+          <tr class="pick"><th>개인 OpenAI API 키</th><td>처음이라 무엇을 고를지 모르겠다면. 쓴 만큼 OpenAI 계정에 청구됩니다.</td></tr>
+          <tr><th>개인 Claude API 키</th><td>Anthropic(Claude) 개발자 계정을 쓰고 싶을 때. 쓴 만큼 그 계정에 청구됩니다.</td></tr>
+          <tr><th>Claude Code</th><td>이미 Claude 구독(Pro 이상)을 쓰고 있을 때. 따로 청구되지 않습니다.</td></tr>
+          <tr><th>Codex</th><td>이미 ChatGPT 구독을 쓰고 있을 때. 따로 청구되지 않습니다.</td></tr>
+        </tbody>
+      </table>
+      <ol class="steps">
+        <li><span>키 방식이면 <span class="ui">처음 설정 안내 ↗</span>를 따라 키를 만듭니다.</span></li>
+        <li><span>키 칸에 붙여 넣고 <span class="ui">연결 시험 및 저장</span>. 가짜 쪽지 한 건으로 시험합니다.</span></li>
+        <li><span><b>연결 시험을 통과했습니다</b>가 나오면 끝. 새 쪽지 자동 분류도 함께 켜집니다.</span></li>
+      </ol>
+      <h3>메신저 연결</h3>
+      <ol class="steps">
+        <li><span>메신저에 로그인하고 창을 띄워 둡니다. <span class="ed brity">브리티판</span>브리티는 <b>원 뷰</b>로 써 주세요(환경설정 › 일반 › 뷰 모드).</span></li>
+        <li><span>캘린더 위쪽 <span class="ui">브리티 연결</span>(GOE판은 <span class="ui">GOE 메신저 연결</span>)을 누릅니다.</span></li>
+        <li><span>지난 쪽지를 불러올 기간을 고르고 <span class="ui">불러오기</span>. 끝날 때까지 메신저 창은 그대로 두세요.</span></li>
+      </ol>
+      <div class="tip"><b>그다음부터는</b> 메신저를 켜 두기만 하면 한 시간마다 새 쪽지를 가져옵니다. 창을 닫아도 작업 표시줄 오른쪽에서 계속 가져와요.</div>
+    </section>
+
+    <section class="chap" id="screen">
+      <div class="num">02</div>
+      <h2>화면 읽는 법</h2>
+      <p>왼쪽은 해야 할 것, 오른쪽은 날짜입니다. 왼쪽 목록은 지남·오늘·이번 주 순서로 나뉘고, 기한이 지난 일은 끝낼 때까지 맨 위에 남아요.</p>
+      <div class="fig"><img src="img/hero-tight.webp" alt="메신저 캘린더 전체 화면" loading="lazy"></div>
+      <h3>왼쪽 위 다섯 칸</h3>
+      <ul class="legend">
+        <li><b>할 일</b>해야 하는 일. 빨간 점은 안 읽은 쪽지 수예요.</li>
+        <li><b>분류할 것</b>AI가 애매하다고 본 쪽지.</li>
+        <li><b>확인할 것</b>할 일은 아니지만 알아 둘 공지.</li>
+        <li><b>처리한 것</b>끝냈거나 날짜가 지난 일정.</li>
+        <li><b>숨긴 것</b>업무와 관계없어 치워 둔 쪽지.</li>
+      </ul>
+      <h3>달력의 표시</h3>
+      <ul class="legend">
+        <li><b>□ 마감</b>그날까지 끝낼 일. 지나도 끝낼 때까지 남아요.</li>
+        <li><b>● 일정</b>그날 있는 일. 날짜가 지나면 처리한 것으로.</li>
+        <li><b>○ 기한 없음</b>날짜 없이 받은 일. 오늘 칸에 따라와요.</li>
+        <li><b>색 띠</b>여러 날에 걸친 기간(주간 행사 등).</li>
+        <li><b>점선</b>AI가 찾은 후보. 확인하면 확정돼요.</li>
+        <li><b>파랑·빨강</b>중요한 업무, 매우 중요한 업무.</li>
+      </ul>
+    </section>
+
+    <section class="chap" id="note">
+      <div class="num">03</div>
+      <h2>쪽지 확인과 답장</h2>
+      <p>목록이나 달력에서 업무를 누르면 오른쪽에 쪽지가 열립니다.</p>
+      <div class="fig tall"><img src="img/detail.webp" alt="쪽지 자세히 화면" loading="lazy"></div>
+      <ol class="steps">
+        <li><span><b>쪽지 원문</b>과 첨부를 확인합니다. 첨부 이름을 누르면 바로 열려요.</span></li>
+        <li><span>끝냈으면 <span class="ui">완료</span>. 남은 할 일을 모두 끝내면 다음 쪽지가 열리고, 방금 한 처리는 되돌릴 수 있습니다.</span></li>
+        <li><span>답장하려면 연필 단추를 눌러 할 말을 적거나 마이크로 말하고, <span class="ui">다듬기</span>로 문장을 고칩니다.</span></li>
+      </ol>
+      <div class="tip"><span class="ed goe">GOE판</span>쪽지 옆 아이콘을 누르면 메신저 원문이 열립니다. 다듬은 답장은 복사한 뒤 GOE에서 붙여 넣어 보내세요.</div>
+    </section>
+
+    <section class="chap" id="batch">
+      <div class="num">04 · 0.6.3 새 기능</div>
+      <h2>일정 고치기와 묶어서 편집</h2>
+      <p>날짜가 틀렸으면 쪽지에서 <span class="ui">날짜 고치기</span>로 바꿉니다. 같은 날 마감이 여러 개면 각각 이름과 시간을 따로 저장할 수 있어요. 바쁜 주에는 한꺼번에 고치세요.</p>
+      <div class="fig"><img src="img/batch.webp" alt="업무 묶어서 편집 창" loading="lazy"></div>
+      <ol class="steps">
+        <li><span>달력 위 <span class="ui">묶어서 편집</span>을 누릅니다.</span></li>
+        <li><span><span class="ui">하루</span> 또는 <span class="ui">일주일</span>을 고르고 날짜를 정합니다.</span></li>
+        <li><span>업무마다 날짜·시간·종류를 고치거나, 여러 개를 골라 <span class="ui">선택 완료·확인</span>. 마지막에 <span class="ui">저장</span>.</span></li>
+      </ol>
+    </section>
+
+    <section class="chap" id="add">
+      <div class="num">05</div>
+      <h2>업무 추가</h2>
+      <p>쪽지로 오지 않은 일도 달력에 올릴 수 있습니다. 오른쪽 위 <span class="ui">업무 추가</span>를 누르세요.</p>
+      <div class="fig"><img src="img/add.webp" alt="업무 추가 창의 메모로 적기" loading="lazy"></div>
+      <h3>메모로 적기</h3>
+      <p>생각나는 대로 여러 줄 적고 <span class="ui">AI로 다듬기</span>를 누르면 업무 후보로 나눠 줍니다. 후보를 고쳐 필요한 것만 등록하세요. 닫아 둔 메모는 이 PC에 잠시 남습니다.</p>
+      <h3>직접 입력</h3>
+      <p>이름과 날짜를 직접 넣습니다. 날짜 없이 두면 기한 없는 할 일(○)이 되고, <b>반복</b>을 고르면 매주·격주·매월 일정이 됩니다. 반복 일정은 이번 회차만 완료하거나 다음 회차를 건너뛸 수 있어요.</p>
+    </section>
+
+    <section class="chap" id="school">
+      <div class="num">06</div>
+      <h2>학교 일정과 휴대폰</h2>
+      <h3>학사일정과 급식</h3>
+      <p><span class="ui">설정</span> → <span class="ui">달력 연동</span>의 <b>우리 학교 학사일정·급식</b>에서 학교를 고르면 학사일정과 오늘 급식이 달력에 보입니다. 반복 일정을 만들 때 학교가 쉬는 날을 뺄 수도 있어요.</p>
+      <h3>구글 캘린더</h3>
+      <p><span class="ui">설정</span> → <span class="ui">달력 연동</span>에서 <span class="ui">구글 계정 연결</span>을 누르면 할 일과 알아 둘 일정이 내 구글 캘린더의 <b>학교 할 일</b>, <b>학교 알림</b>에 표시됩니다. 휴대폰에서도 업무 날짜와 알림을 볼 수 있어요. 연결은 선택이며 언제든 해제할 수 있습니다.</p>
+    </section>
+
+    <section class="chap" id="ai">
+      <div class="num">07</div>
+      <h2>AI에게 맡기기</h2>
+      <p>계획서 초안처럼 손이 많이 가는 일은 Codex나 Claude Code에게 맡길 수 있습니다. 이 PC에 둘 중 하나가 설치돼 있어야 해요.</p>
+      <ol class="steps">
+        <li><span>쪽지에서 <span class="ui">프로젝트에서 시작</span>을 누릅니다.</span></li>
+        <li><span>맡길 AI와 프로젝트, 함께 보낼 첨부를 고르고 요청을 적습니다.</span></li>
+        <li><span>Codex는 새 채팅에 초안을 열고, Claude Code는 고른 프로젝트에서 작업을 시작합니다. 돌려받은 초안은 쪽지의 <b>AI 작업 결과</b>에 남아요.</span></li>
+      </ol>
+      <div class="tip">쓰던 AI 채팅에 쪽지를 공유하려면 <span class="ui">설정</span> → <span class="ui">에이전트</span>에서 연결 요청을 복사해 채팅에 붙여 넣으세요. 이 기능을 쓰지 않으면 같은 탭에서 <b>쪽지에 AI 앱 작업 메뉴와 결과 보이기</b>를 끄세요.</div>
+    </section>
+
+    <section class="chap" id="look">
+      <div class="num">08</div>
+      <h2>보기와 꾸미기</h2>
+      <p>달력 위에서 <span class="ui">월간</span>과 <span class="ui">목록</span>을 바꿉니다. 달력 위 보기 설정 단추에서 <b>달력 칸 크기</b>를 <b>업무 많은 주는 넓게</b>로 고르면 일정이 많은 주에 더 넓은 칸을 씁니다. 글씨가 작으면 오른쪽 위 <span class="ui">가</span> 단추로 키우세요.</p>
+      <p><span class="ui">설정</span> → <span class="ui">화면·알림</span>의 <b>화면 꾸미기</b>에서 열세 가지 꾸미기와 글꼴을 고를 수 있어요.</p>
+      <div class="skins">
+        <figure><img src="img/skin-cute.webp" alt="파스텔 고양이 꾸미기" loading="lazy"><figcaption>파스텔 고양이</figcaption></figure>
+        <figure><img src="img/skin-evening.webp" alt="밤하늘 꾸미기" loading="lazy"><figcaption>밤하늘</figcaption></figure>
+        <figure><img src="img/skin-woodland.webp" alt="숲속 수첩 꾸미기" loading="lazy"><figcaption>숲속 수첩</figcaption></figure>
+        <figure><img src="img/skin-chalk.webp" alt="칠판 꾸미기" loading="lazy"><figcaption>칠판</figcaption></figure>
+        <figure><img src="img/skin-news.webp" alt="신문 꾸미기" loading="lazy"><figcaption>신문</figcaption></figure>
+        <figure><img src="img/skin-minimal.webp" alt="미니멀 꾸미기" loading="lazy"><figcaption>미니멀(처음 모습)</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="chap" id="keep">
+      <div class="num">09</div>
+      <h2>업데이트와 옮기기</h2>
+      <h3>새 판 받기</h3>
+      <p>새 판이 나오면 앱이 알려 줍니다. <span class="ui">업데이트</span>를 누르면 자료는 그대로 둔 채 새 판으로 다시 열려요. 달라진 점은 그때 창으로 보여 줍니다.</p>
+      <div class="tip"><b>학교망에서 업데이트가 안 되면</b> 다른 PC에서 새 전체 ZIP을 받아 USB로 옮긴 뒤, 같은 폴더에 덮어 푸세요.</div>
+      <h3>다른 PC로 옮기기</h3>
+      <p><span class="ui">설정</span> → <span class="ui">백업·정보</span>에서 <span class="ui">백업 만들기</span>를 누르고, 새 PC의 캘린더에서 <span class="ui">백업에서 되돌리기</span>로 불러오면 업무와 쪽지가 그대로 옮겨집니다.</p>
+      <h3>더 막히면</h3>
+      <p>앱의 <span class="ui">의견</span> 단추로 알려 주세요. 자주 묻는 것은 <a href="index.html#faq" style="text-decoration:underline">도움말</a>에 있어요.</p>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="big">오늘 받은 쪽지부터<br>달력으로 옮겨 보세요</p>
+    <div class="btns"><a class="main" href="https://github.com/rndosd/brity-assistant-public/releases/download/v0.6.3/brity-messenger-calendar-windows-x64-0.6.3.zip">브리티 메신저용 받기</a><a class="sub2" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip">GOE 메신저용 받기</a></div>
+    <div class="links"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><span>교육청·메신저 회사와 관계없는 개인 제작 앱</span></div>
+  </div>
+</footer>
+
+<script>
+// 지금 읽는 장을 목차에 표시
+const links = [...document.querySelectorAll('.toc a[href^="#"]')];
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-30% 0px -60% 0px' });
+document.querySelectorAll('.chap').forEach(s => io.observe(s));
+links[0].classList.add('on');
+</script>
+</body>
+</html>
