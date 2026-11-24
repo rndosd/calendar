@@ -8,7 +8,7 @@
 <link rel="icon" href="img/app.svg">
 <link rel="stylesheet" href="style.css?v=install">
 <link rel="stylesheet" href="cover.css?v=6">
-<link rel="stylesheet" href="demo.css?v=1">
+<link rel="stylesheet" href="demo.css?v=2">
 </head>
 <body>
 
@@ -32,8 +32,8 @@
   <div class="hero-copy">
     <p class="hero-question">쪽지 정리 귀찮으셨나요?</p>
     <h1><span>쌓인 쪽지,</span> <span>할 일과 일정으로</span> <b>알아서 정리해 드려요.</b></h1>
-    <p class="sub">브리티·GOE 쪽지의 오늘 마감과 필요한 첨부파일을 달력에서 바로 확인하세요.</p>
-    <a class="hero-demo" href="#demo">샘플로 체험하기 <span aria-hidden="true">↓</span></a>
+    <p class="sub">브리티·GOE 쪽지를 앱이 읽고, <span style="white-space:nowrap">해야 할 일과 날짜만</span> 골라 달력에 올려요.</p>
+    <a class="hero-demo" href="#demo">샘플 쪽지 9통 정리해 보기 <span aria-hidden="true">↓</span></a>
     <fieldset class="cover-choices" hidden>
       <legend>앱 스킨 구경하기</legend>
       <div class="cover-options">
@@ -72,52 +72,64 @@
 
 <main>
   <section class="wrap demo" id="demo" aria-labelledby="demo-title">
-    <h2 id="demo-title">쪽지 세 통, 달력에 정리해 볼까요?</h2>
-    <p class="demo-intro">가상 브리티 쪽지를 가져와 오늘 마감과 첨부 양식을 직접 열어 보세요.</p>
-    <noscript><p>브라우저에서 자바스크립트를 켜면 샘플 쪽지를 체험할 수 있습니다.</p></noscript>
-    <div class="demo-board" hidden>
-      <section class="demo-inbox" aria-labelledby="demo-inbox-title">
-        <header class="demo-panel-header">
-          <div><span class="demo-label">브리티 메신저 · 연습용</span><h3 id="demo-inbox-title">받은 쪽지</h3></div>
-          <span class="demo-count" id="demo-count"></span>
-        </header>
-        <ul class="demo-messages" id="demo-messages"></ul>
-        <button type="button" class="demo-action" id="demo-import">샘플 쪽지 가져오기 <span aria-hidden="true">→</span></button>
+    <p class="demo-kicker">직접 눌러 보기 · 1분</p>
+    <h2 id="demo-title">출근했더니 <span style="white-space:nowrap">안 읽은 쪽지가 9통.</span></h2>
+    <p class="demo-intro">실제 앱과 같은 화면이에요. 쪽지를 가져온 뒤 아래 다섯 가지를 해 보세요.</p>
+    <noscript><p>브라우저에서 자바스크립트를 켜면 샘플 쪽지로 체험할 수 있습니다.</p></noscript>
+    <ol class="dm-missions" id="dm-missions" hidden>
+      <li data-m="import"><i></i><span>쪽지 9통 가져오기</span></li>
+      <li data-m="file"><i></i><span>오늘 마감 열고 첨부 양식 보기</span></li>
+      <li data-m="reply"><i></i><span>연수 회신 답장 받아 보기</span></li>
+      <li data-m="done"><i></i><span>끝낸 일 체크하기</span></li>
+      <li data-m="search"><i></i><span>‘양식’ 검색으로 지난달 쪽지 찾기</span></li>
+    </ol>
+    <div class="dm-stage" id="dm-stage" hidden>
+      <section class="dm-messenger" aria-label="가상 브리티 메신저 쪽지함">
+        <header><b>브리티 메신저</b><span>쪽지함 · 가상</span><em id="dm-unread">9</em></header>
+        <ul id="dm-inbox"></ul>
       </section>
-      <section class="demo-calendar" aria-labelledby="demo-calendar-title">
-        <header class="demo-panel-header">
-          <div><span class="demo-label">메신저 캘린더</span><h3 id="demo-calendar-title"></h3></div>
-          <button type="button" class="demo-reset" id="demo-reset" disabled>처음부터</button>
-        </header>
-        <p class="demo-status" id="demo-status" role="status">샘플 쪽지를 가져오면 각 날짜에 마감과 일정이 들어와요.</p>
-        <div class="demo-days" id="demo-days"></div>
+      <section class="dm-app" aria-label="메신저 캘린더 체험 화면">
+        <div class="dm-titlebar"><img src="img/app.svg" alt="">브리티 메신저 캘린더<span class="ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="dm-head">
+          <strong>브리티 메신저 캘린더</strong>
+          <span class="dm-progress" id="dm-progress" role="status" aria-live="polite"></span>
+          <button type="button" class="dm-get" id="dm-import">브리티에서 가져오기</button>
+        </div>
+        <div class="dm-body">
+          <aside class="dm-side">
+            <label class="dm-search"><span class="sr">업무·쪽지 검색</span><input id="dm-search" type="search" placeholder="업무·쪽지 검색" autocomplete="off"></label>
+            <p class="dm-date" id="dm-date"></p>
+            <div class="dm-tabs" id="dm-tabs"></div>
+            <div class="dm-list" id="dm-list"></div>
+          </aside>
+          <div class="dm-main">
+            <div class="dm-month"><b id="dm-month"></b><span class="dm-view"><i>월간</i><i>목록</i></span></div>
+            <div class="dm-grid" id="dm-grid"></div>
+            <p class="dm-legend"><span>☐ 마감</span><span>● 일정</span><span class="p">기간</span><span class="r">● 중요</span></p>
+          </div>
+          <section class="dm-detail" id="dm-detail" aria-label="업무 자세히" hidden></section>
+          <div class="dm-viewer" id="dm-viewer" hidden></div>
+        </div>
+        <div class="dm-toast" id="dm-toast" role="status" aria-live="polite"></div>
       </section>
     </div>
-    <dialog class="demo-detail" id="demo-detail" aria-labelledby="demo-detail-title">
-      <header class="demo-detail-header">
-        <div><p class="demo-label" id="demo-detail-date"></p><h3 id="demo-detail-title"></h3></div>
-        <form method="dialog"><button type="submit" class="demo-reset" autofocus>닫기</button></form>
-      </header>
-      <h4>쪽지 원문</h4>
-      <article class="demo-original">
-        <p class="demo-label" id="demo-detail-sender"></p>
-        <p id="demo-detail-body"></p>
-      </article>
-      <details class="demo-attachment" id="demo-attachment">
-        <summary><span>첨부파일</span><strong id="demo-attachment-name"></strong></summary>
-        <pre id="demo-attachment-body"></pre>
-      </details>
-      <button type="button" class="demo-action demo-finish" id="demo-finish">완료</button>
-    </dialog>
+    <p class="dm-note" id="dm-note" hidden>샘플은 미리 정해 둔 결과를 보여 줘요. 실제 앱에서는 연결한 AI가 쪽지를 읽고 나눕니다.</p>
+    <div class="dm-finish" id="dm-finish" hidden>
+      <div>
+        <h3>9통을 다 열지 않아도, 할 일은 다 챙겼어요.</h3>
+        <p>할 일 4개와 일정 2개는 날짜에 맞춰 들어갔고, 재안내 쪽지는 같은 일로 묶였어요. 공사 안내와 결산 공유는 할 일 목록에 끼어들지 않았고요.</p>
+      </div>
+      <div class="dm-finish-btns"><a class="main" href="#get">내 PC에 받기</a><button type="button" id="dm-restart">처음부터 다시</button></div>
+    </div>
   </section>
 
   <section class="wrap rows" id="features" aria-labelledby="features-title">
-    <h2 class="features-title fade" id="features-title">오늘 뭐부터 하지?<br>달력을 열면 먼저 할 일이 보여요.</h2>
+    <h2 class="features-title fade" id="features-title">쪽지를 하나하나 열지 않아도<br>내 할 일부터 보여요.</h2>
     <article class="row fade">
       <div class="text">
         <p class="k">쪽지 자동 정리</p>
-        <h3>‘오늘까지 제출’이<br>오늘 할 일로.</h3>
-        <p>아침에 달력을 열면 오늘 제출할 일과 아직 못 끝낸 마감이 먼저 보여요. 쪽지가 올 때마다 날짜를 옮겨 적을 일이 줄어요.</p>
+        <h3>‘오늘까지 제출’ 쪽지가<br>오늘 할 일로 올라와요.</h3>
+        <p>공지와 결과 공유 사이에 섞인 제출 요청을 앱이 찾아 날짜에 맞춰 적어요. 재안내는 먼저 온 쪽지와 한 줄로 묶이고, 기한을 넘긴 일은 끝낼 때까지 맨 위에 남아요.</p>
         <figure class="task-example" aria-label="쪽지에서 오늘 할 일로 바뀌는 예시">
           <blockquote>체험학습 계획서는 오늘까지 제출해 주세요.</blockquote>
           <span class="task-example-arrow" aria-hidden="true">↓</span>
@@ -130,21 +142,21 @@
       <div class="text">
         <p class="k">원문과 첨부파일</p>
         <h3>찾던 양식도<br>할 일에서 열어요.</h3>
-        <p>달력에서 할 일을 누르면 누가 뭐라고 보냈는지, 어떤 파일이 붙었는지 한눈에 보여요. 받아 둔 양식은 파일 이름을 누르면 바로 열려요.</p>
+        <p>마감 날 아침 할 일을 누르면 누가 보낸 쪽지인지와 붙어 온 양식이 같이 보여요. 메신저에서 쪽지를 다시 찾지 않고 파일 이름을 눌러 바로 열어요.</p>
       </div>
       <div class="pic pic-note"><img src="img/feature-note.webp" width="650" height="598" alt="쪽지 원문 바로 아래에 표시된 샘플 선거 결과 첨부파일" loading="lazy"></div>
     </article>
   </section>
 
   <section class="wrap more fade">
-    <h2>이럴 때도 써 보세요</h2>
+    <h2>이럴 때 특히 편해요</h2>
     <div class="list">
-      <div><h3>예전에 받은 양식 다시 찾기</h3><p>파일 이름으로 검색하면 그 첨부를 보낸 쪽지가 나와요.</p></div>
-      <div><h3>내일 마감, 집에서도 확인</h3><p>구글 캘린더로 보낸 할 일과 일정은 휴대폰에서도 확인해요.</p></div>
-      <div><h3>회의 끝나면 할 일만 골라요</h3><p>메모를 붙여 넣고, AI가 뽑은 항목 중 필요한 것만 달력에 올려요.</p></div>
-      <div><h3>월요일마다 할 일, 한 번만 등록</h3><p>반복 일정으로 적어 두면 다음 주에도 해야 할 날에 떠요.</p></div>
-      <div><h3>오늘 급식과 학교 행사도 달력에</h3><p>학교만 골라 두면 그 학교의 급식과 학사일정이 표시돼요.</p></div>
-      <div><h3>계획서 초안부터 잡아요</h3><p>받은 쪽지와 파일을 골라 Codex나 Claude Code에 초안을 맡겨요.</p></div>
+      <div><h3>지난 양식, 파일 이름으로 찾기</h3><p>파일 이름 한 단어만 넣어도 그 양식을 보낸 쪽지가 나와요.</p></div>
+      <div><h3>회신 쪽지 초안 받기</h3><p>할 말을 한 줄 적으면 보낼 만한 답장으로 다듬어 줘요. 복사해서 붙여 넣으면 돼요.</p></div>
+      <div><h3>퇴근길에 휴대폰으로 확인</h3><p>구글 캘린더와 이어 두면 정리된 할 일이 휴대폰 달력에도 떠요.</p></div>
+      <div><h3>회의 메모에서 할 일 뽑기</h3><p>메모를 통째로 붙여 넣으면 할 일 후보를 뽑아 줘요. 필요한 것만 골라 달력에 올리면 돼요.</p></div>
+      <div><h3>매주 하는 일은 한 번만 등록</h3><p>반복으로 적어 두면 매주 그 요일 할 일에 올라와요.</p></div>
+      <div><h3>급식과 학사일정도 같은 달력에</h3><p>학교만 골라 두면 오늘 급식과 학교 행사가 함께 보여요.</p></div>
     </div>
   </section>
 
@@ -188,7 +200,7 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
 <script src="cover.js?v=3" defer></script>
-<script src="demo.js?v=1" defer></script>
+<script src="demo.js?v=2" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {
