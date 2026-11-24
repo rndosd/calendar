@@ -46,8 +46,8 @@
   </div>
 
   <div class="corner get-card" id="get">
-    <div class="get-head"><h2>무료로 받기</h2><span class="ver" data-ver>0.6.3</span></div>
-    <p>Windows 10·11 · 압축만 풀면 바로 실행</p>
+    <div class="get-head"><h2>무료로 받기</h2></div>
+    <p>Windows 10·11<br>ZIP을 풀어 실행한 뒤 AI와 메신저를 연결하세요.</p>
     <a class="main" data-dl="brity" href="https://github.com/rndosd/brity-assistant-public/releases/download/v0.6.3/brity-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/app.svg" alt="">브리티 메신저용<span>ZIP ↓</span></a>
     <a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/goe-app.svg" alt="">GOE 메신저용<span>ZIP ↓</span></a>
   </div>
@@ -166,24 +166,26 @@
       <div>
         <h2>처음 실행하기</h2>
         <ol>
-          <li><div><b>압축 풀기</b><span>받은 ZIP을 마우스 오른쪽 버튼으로 누르고 ‘모두 압축 풀기’를 선택하세요.</span></div></li>
-          <li><div><b>캘린더 열기</b><span>압축을 푼 폴더에서 브리티 또는 GOE 메신저 캘린더 실행 파일을 두 번 누르세요.</span></div></li>
-          <li><div><b>PC 보호 창이 뜨면</b><span>‘추가 정보’를 누른 뒤 ‘실행’을 선택하세요. 앱을 열면 AI 연결과 메신저 연결 순서가 나와요.</span></div></li>
+          <li><div><b>ZIP 받기</b><span><a href="#get">무료로 받기</a>에서 쓰고 있는 메신저의 ZIP 버튼을 누르세요.</span></div></li>
+          <li><div><b>압축 풀기</b><span>다운로드 폴더에서 ZIP을 마우스 오른쪽 버튼으로 누르고 ‘모두 압축 풀기’를 선택하세요.</span></div></li>
+          <li><div><b>캘린더 열기</b><span>압축을 푼 폴더에서 메신저 캘린더를 두 번 누르세요. 앱에서 ‘AI 연결’, ‘메신저 연결’ 순으로 진행하세요.</span></div></li>
         </ol>
       </div>
       <div>
-        <a class="yt" id="install-video" href="https://youtu.be/_hH_5xYOfBw" data-youtube-id="_hH_5xYOfBw" data-video-title="설치 영상 · GOE 화면 예시" aria-haspopup="dialog" aria-describedby="install-brity"><span>설치 영상 보기 · GOE 화면 예시</span></a>
+        <a class="yt" id="install-video" href="https://youtu.be/zS4569-bP3Y" data-youtube-id="zS4569-bP3Y" data-video-title="설치 영상 · GOE 화면 예시" aria-haspopup="dialog" aria-describedby="install-brity"><span>설치 영상 보기 · GOE 화면 예시</span></a>
         <p class="install-note" id="install-brity"><strong>브리티를 쓰신다면</strong> 메신저의 환경설정 → 일반 → 뷰 모드에서 <strong>원 뷰</strong>로 바꾼 뒤, 캘린더에서 <strong>브리티 연결</strong>을 누르세요.</p>
+        <p class="install-note"><strong>개인 OpenAI API로 연결한다면</strong> <a href="https://platform.openai.com/settings/organization/billing/overview">결제 설정 ↗</a> · <a href="https://platform.openai.com/api-keys">API 키 발급 ↗</a> · <a href="guide.html#openai-setup">비용과 연결 방법</a></p>
       </div>
     </div>
   </section>
 
   <section class="wrap faq" id="faq">
     <h2>도움말</h2>
-    <details><summary>실행 파일을 눌러도 안 열려요</summary><p>ZIP의 ‘모두 압축 풀기’를 먼저 하고, 새로 생긴 폴더에서 실행 파일을 열어 보세요.</p></details>
-    <details><summary>메신저 연결이 안 돼요</summary><p>메신저에 로그인한 상태에서 다시 연결해 보세요. 브리티는 환경설정 → 일반 → 뷰 모드에서 ‘원 뷰’를 선택해 주세요.</p></details>
-    <details><summary>학교 PC에서 다운로드가 안 돼요</summary><p>학교에서 GitHub 접속을 제한하는 경우가 있어요. 다른 PC에서 받아 학교에서 허용하는 방법으로 옮길 수 있어요.</p></details>
-    <details><summary>쪽지 내용은 어디로 보내나요?</summary><p>쪽지를 분류할 때 확인된 이름·연락처와 웹 주소를 가린 뒤, 연결한 AI에 제목과 본문을 보내요. 첨부는 PC에 저장하고, 직접 골라 공유할 수 있어요.</p></details>
+    <details><summary>ZIP을 눌렀는데 파일만 보여요</summary><p>파일 탐색기에서 <b>다운로드</b> 폴더를 열고, 받은 ZIP을 오른쪽 클릭해 <b>모두 압축 풀기</b>를 누르세요. 새로 생긴 폴더에서 <b>브리티 메신저 캘린더</b> 또는 <b>GOE 메신저 캘린더</b>를 여세요.</p></details>
+    <details><summary>‘Windows의 PC 보호’ 화면이 떠요</summary><p>이 사이트에서 받은 ZIP을 풀어 실행했는지 확인하세요. 다음 화면에서 누를 버튼은 <a href="guide.html#setup">처음 시작 안내</a>의 <b>열기</b>에서 볼 수 있어요.</p></details>
+    <details><summary>캘린더가 켜지자마자 꺼져요</summary><p><a href="#get">무료로 받기</a>에서 같은 메신저용 ZIP을 받아 <b>새 폴더</b>에 풀고 실행해 보세요. 그래도 꺼지면 <a href="https://github.com/rndosd/brity-assistant-public#켜지지-않을-때">진단 도구 사용법</a>을 따라 바탕 화면에 생긴 <b>캘린더-진단.txt</b>를 제작자에게 보내 주세요.</p></details>
+    <details><summary>메신저는 켜져 있는데 쪽지를 못 가져와요</summary><p>캘린더와 같은 종류의 메신저에 먼저 로그인하세요. 브리티는 <b>환경설정 → 일반 → 뷰 모드 → 원 뷰</b>로 바꾼 뒤 캘린더에서 <b>브리티 연결</b>을 누르세요. GOE는 로그인한 창을 그대로 둔 채 <b>GOE 메신저 연결</b>을 누르세요.</p></details>
+    <details><summary>쪽지는 가져왔는데 달력에 날짜가 안 떠요</summary><p>위쪽 <b>AI 연결</b>에서 <b>연결 시험 및 저장</b>까지 마치세요. 이미 가져온 쪽지는 <b>할 일</b> 목록 위의 <b>AI로 정리</b>를 눌러 정리할 수 있어요.</p></details>
   </section>
 </main>
 
@@ -203,7 +205,7 @@ document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') :
 <script src="cover.js?v=3" defer></script>
 <script src="demo.js?v=3" defer></script>
 <script>
-// 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
+// 새 릴리스가 있으면 받기 단추를 최신 ZIP으로 연결한다.
 (async () => {
   const repos = { brity: ['brity-assistant-public', 'brity-messenger-calendar-windows-x64-'], goe: ['goe-messenger-calendar', 'goe-messenger-calendar-windows-x64-'] };
   for (const [key, [repo, prefix]] of Object.entries(repos)) {
@@ -214,7 +216,6 @@ document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') :
       const asset = rel.assets.find(a => a.name.startsWith(prefix) && a.name.endsWith('.zip'));
       if (!asset) continue;
       document.querySelectorAll('[data-dl="' + key + '"]').forEach(a => { a.href = asset.browser_download_url; });
-      if (key === 'brity') document.querySelectorAll('[data-ver]').forEach(s => { s.textContent = rel.tag_name.replace(/^v/, ''); });
     } catch {}
   }
 })();

@@ -58,6 +58,21 @@
 .legend b { flex: none; width: 96px; }
 .tip { margin: 18px 0; padding: 14px 18px; border-radius: 14px; background: #fbf3e6; box-shadow: 0 0 0 1px rgba(194, 120, 45, .18); font-size: 15.5px; color: #4a3f2d; }
 .tip b { color: #8a4a12; }
+.api-cost { margin: 28px 0; padding: clamp(18px, 4vw, 32px); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 16px; background: #fbf7ee; scroll-margin-top: 88px; }
+.api-cost h3 { margin: 0 0 5px; font-size: clamp(22px, 3.5vw, 29px); line-height: 1.3; }
+.api-cost p { margin: 0; color: #51483b; }
+.api-cost-figures { display: flex; flex-wrap: wrap; column-gap: 28px; margin: 21px 0 16px; border-block: 1px solid var(--line); }
+.api-cost-figures > div { flex: 1 1 220px; padding: 17px 0; }
+.api-cost-figures dt { font-weight: 700; color: #5b4a3c; }
+.api-cost-figures dd { margin: 0; font-weight: 700; }
+.api-cost-figures strong { font-size: clamp(40px, 6vw, 58px); line-height: 1.16; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
+.api-cost-figures dd span { display: block; margin-top: 4px; font-size: 14px; font-weight: 400; color: #51483b; }
+.api-cost-balance b { color: var(--ink); }
+.api-cost .api-cost-actions { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 16px; }
+.api-cost-actions a { padding: 5px 12px; border: 1px solid #d5c3ac; border-radius: 8px; background: #fffdf7; color: #633824; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.api-cost-details { margin-top: 17px; font-size: 14px; }
+.api-cost-details summary { cursor: pointer; font-weight: 700; }
+.api-cost-details p { margin-top: 7px; }
 .install-guide p { margin: 0; }
 .install-guide p + p { margin-top: 6px; }
 .install-guide a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
