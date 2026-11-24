@@ -8,7 +8,7 @@
 <link rel="icon" href="img/app.svg">
 <link rel="stylesheet" href="style.css?v=install">
 <link rel="stylesheet" href="cover.css?v=6">
-<link rel="stylesheet" href="demo.css?v=2">
+<link rel="stylesheet" href="demo.css?v=3">
 </head>
 <body>
 
@@ -112,6 +112,7 @@
         </div>
         <div class="dm-toast" id="dm-toast" role="status" aria-live="polite"></div>
       </section>
+      <p class="dm-coach" id="dm-coach" role="status" aria-live="polite" hidden></p>
     </div>
     <p class="dm-note" id="dm-note" hidden>샘플은 미리 정해 둔 결과를 보여 줘요. 실제 앱에서는 연결한 AI가 쪽지를 읽고 나눕니다.</p>
     <div class="dm-finish" id="dm-finish" hidden>
@@ -200,7 +201,7 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
 <script src="cover.js?v=3" defer></script>
-<script src="demo.js?v=2" defer></script>
+<script src="demo.js?v=3" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {

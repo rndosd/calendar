@@ -341,11 +341,74 @@
       li.classList.toggle('ok', S.missions.has(li.dataset.m));
       li.classList.toggle('now', li.dataset.m === next);
     });
-    $('import').classList.toggle('pulse', next === 'import' && !S.busy);
-    $('search').classList.toggle('pulse', next === 'search' && !S.query);
-    root.querySelectorAll('[data-open="plan"]').forEach(b => b.classList.toggle('pulse', next === 'file' && S.sel !== 'plan'));
-    root.querySelectorAll('[data-open="training"]').forEach(b => b.classList.toggle('pulse', next === 'reply' && S.sel !== 'training'));
     $('finish').hidden = !!next;
+    coachSoon();
+  }
+
+  // ---------- 다음에 누를 곳 ----------
+  // 지금 상태에서 다음에 누를 자리와 말풍선 문구를 고른다.
+  function nextStep() {
+    const next = ORDER.find(m => !S.missions.has(m));
+    const D = s => $('detail').querySelector(s);
+    const L = s => $('list').querySelector(s);
+    if (S.busy) return null;
+    if (!$('viewer').hidden) return [$('viewer').querySelector('.dm-x'), '양식을 봤으면 닫아 주세요'];
+    if (next === 'import') return [$('import'), '여기를 눌러 쪽지를 가져와 보세요'];
+    if (next === 'file') {
+      if (S.sel !== 'plan') return [L('[data-open="plan"]'), '오늘 마감인 이 일을 눌러 보세요'];
+      return [D('[data-file="n1"]'), '붙어 온 양식을 바로 열어 보세요'];
+    }
+    if (next === 'reply') {
+      if (S.sel !== 'training') return [L('[data-open="training"]'), '회신해야 하는 이 일을 눌러 보세요'];
+      return [D('[data-act="reply"]'), '답장 쓰기를 눌러 보세요'];
+    }
+    if (next === 'done') {
+      if (S.reply && S.reply.id === S.sel && !S.reply.copied) return [D('[data-act="copy"]'), '복사해서 메신저 답장 창에 붙여 넣으면 돼요'];
+      if (S.sel && T(S.sel).type === 'todo' && !S.done.has(S.sel)) return [D('.dm-due .dm-btn'), '이제 다 했으니 완료를 눌러 보세요'];
+      return [L('[data-check="plan"]') || L('.dm-check'), '네모를 눌러도 끝낸 일로 옮겨져요'];
+    }
+    if (next === 'search') {
+      if (!S.query.includes('양식')) return [$('search'), '여기에 ‘양식’이라고 입력해 보세요'];
+      return [L('[data-open="old"]'), '지난달에 받은 쪽지예요. 눌러 보세요'];
+    }
+    return null;
+  }
+  let coachTarget = null, coachRaf = 0;
+  function coachSoon() { cancelAnimationFrame(coachRaf); coachRaf = requestAnimationFrame(() => coach()); }
+  function coach(onlyMove) {
+    const bubble = $('coach');
+    const step = onlyMove ? (coachTarget && [coachTarget, bubble.textContent]) : nextStep();
+    const target = step && step[0];
+    if (!onlyMove && target !== coachTarget) {
+      coachTarget?.classList.remove('dm-target');
+      coachTarget = target || null;
+      if (target) {
+        target.classList.add('dm-target');
+        // 목록·자세히 안에서 가려져 있으면 그 안에서만 스크롤한다.
+        const box = target.closest('.dm-list, .dm-detail');
+        if (box) {
+          const tr = target.getBoundingClientRect(), br = box.getBoundingClientRect();
+          if (tr.top < br.top + 8 || tr.bottom > br.bottom - 8) box.scrollTop += tr.top - br.top - br.height / 2 + tr.height / 2;
+        }
+      }
+    }
+    if (!target || !target.isConnected) { bubble.hidden = true; return; }
+    if (!onlyMove) bubble.textContent = step[1];
+    const stage = $('stage').getBoundingClientRect();
+    const t = target.getBoundingClientRect();
+    const box = target.closest('.dm-list, .dm-detail, .dm-messenger ul');
+    const b = box?.getBoundingClientRect();
+    if (!t.width || (b && (t.bottom < b.top || t.top > b.bottom))) { bubble.hidden = true; return; }
+    bubble.hidden = false;
+    const bw = bubble.offsetWidth, bh = bubble.offsetHeight;
+    const cx = t.left - stage.left + t.width / 2;
+    const left = Math.max(6, Math.min(cx - bw / 2, stage.width - bw - 6));
+    const below = t.bottom - stage.top + 12;
+    const up = below + bh > stage.height - 6;
+    bubble.style.left = left + 'px';
+    bubble.style.top = (up ? t.top - stage.top - bh - 12 : below) + 'px';
+    bubble.dataset.up = up ? '1' : '';
+    bubble.style.setProperty('--arrow', Math.max(14, Math.min(cx - left, bw - 14)) + 'px');
   }
 
   function render() {
@@ -407,6 +470,7 @@
     if (S.imported || S.busy) return;
     S.busy = true; S.tab = 'todo'; S.query = ''; $('search').value = '';
     render();
+    coach();
     for (let i = 0; i < NOTES.length; i++) {
       const n = NOTES[i];
       $('progress').textContent = `쪽지 읽는 중 ${i + 1}/${NOTES.length}`;
@@ -431,7 +495,7 @@
     const b = e.target.closest('button');
     if (!b || !root.contains(b)) return;
     if (b.id === 'dm-import') return importNotes();
-    if (b.id === 'dm-restart') { reset(); $('search').value = ''; $('progress').textContent = ''; $('viewer').hidden = true; render(); $('missions').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
+    if (b.id === 'dm-restart') { reset(); $('search').value = ''; $('progress').textContent = ''; $('viewer').hidden = true; coachSoon(); render(); $('missions').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); return; }
     if (b.dataset.tab) { S.tab = b.dataset.tab; S.query = ''; $('search').value = ''; return render(); }
     if (b.dataset.check) return toggleDone(b.dataset.check);
     if (b.dataset.open) return select(b.dataset.open, !!b.dataset.search);
@@ -440,7 +504,7 @@
     if (b.dataset.intent) return startReply(S.reply.id, +b.dataset.intent, 0);
     switch (b.dataset.act) {
       case 'close': S.sel = null; S.reply = null; return render();
-      case 'closefile': $('viewer').hidden = true; return;
+      case 'closefile': $('viewer').hidden = true; coachSoon(); return;
       case 'imp': S.important.has(S.sel) ? S.important.delete(S.sel) : S.important.add(S.sel); return render();
       case 'memo': S.memo[S.sel] = ''; render(); $('detail').querySelector('.dm-memo-box')?.focus(); return;
       case 'reply': return startReply(S.sel, 0, 0);
@@ -448,6 +512,8 @@
       case 'copy': {
         const text = document.getElementById('dm-draft')?.value || '';
         try { navigator.clipboard?.writeText(text).catch(() => {}); } catch {}
+        if (S.reply) S.reply.copied = true;
+        coachSoon();
         toast('복사했어요. 메신저 답장 창에 붙여 넣으면 끝이에요.');
         return;
       }
@@ -472,6 +538,7 @@
     v.hidden = false;
     c.focus();
     mission('file');
+    coachSoon();
   }
   root.addEventListener('input', e => {
     if (e.target.id === 'dm-search') { S.query = e.target.value; renderTabs(); renderList(); renderMissions(); }
@@ -480,10 +547,12 @@
   root.addEventListener('change', e => { if (e.target.dataset.memo) renderList(); });
   root.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    if (!$('viewer').hidden) { $('viewer').hidden = true; return; }
+    if (!$('viewer').hidden) { $('viewer').hidden = true; coachSoon(); return; }
     if (S.sel) { S.sel = null; S.reply = null; render(); }
   });
-  $('viewer').addEventListener('click', e => { if (e.target === $('viewer')) $('viewer').hidden = true; });
+  $('stage').addEventListener('scroll', () => coach(true), true);
+  addEventListener('resize', () => coach(true));
+  $('viewer').addEventListener('click', e => { if (e.target === $('viewer')) $('viewer').hidden = true; coachSoon(); });
 
   $('date').textContent = `${today.getMonth() + 1}월 ${today.getDate()}일 ${WD[today.getDay()]}요일`;
   reset();
