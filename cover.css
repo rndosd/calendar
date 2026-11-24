@@ -109,6 +109,26 @@
 .hero .video-card .thumb { background-image: var(--cover-image); }
 .hero div.video-card:hover { transform: none; }
 
+.feature-player {
+  width: min(960px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 24px 70px #17140f65;
+}
+.feature-player::backdrop { background: #17140fbb; }
+.feature-player-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; }
+.feature-player-header h2 { margin: 0; font-size: 18px; }
+.feature-player-header button { padding: 8px 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; cursor: pointer; }
+.feature-player-screen { aspect-ratio: 16 / 9; background: #111; }
+.feature-player-screen iframe { width: 100%; height: 100%; display: block; border: 0; }
+.feature-player-link { display: inline-block; margin: 12px 16px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
 .cover-choices { margin: 20px 0 0; padding: 0; border: 0; min-width: 0; }
 .cover-choices legend { padding: 0; margin-bottom: 7px; color: var(--cover-muted); font-size: 13px; font-weight: 700; }
 .cover-options { display: flex; flex-wrap: wrap; gap: 7px; }

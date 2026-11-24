@@ -28,3 +28,28 @@
 
   choices.hidden = false;
 })();
+
+(() => {
+  const link = document.querySelector('a#feature-video[data-youtube-id]');
+  const player = document.getElementById('feature-player');
+  if (!link || !player?.showModal) return;
+
+  const screen = player.querySelector('.feature-player-screen');
+  player.querySelector('.feature-player-link').href = link.href;
+  link.addEventListener('click', event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    const frame = document.createElement('iframe');
+    frame.title = '브리티·GOE 메신저 캘린더 기능 소개';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+    frame.allowFullscreen = true;
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.src = `https://www.youtube-nocookie.com/embed/${link.dataset.youtubeId}?autoplay=1`;
+    screen.replaceChildren(frame);
+    player.showModal();
+  });
+  player.addEventListener('close', () => {
+    screen.replaceChildren();
+    link.focus({ preventScroll: true });
+  });
+})();

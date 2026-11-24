@@ -50,12 +50,23 @@
     <a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/goe-app.svg" alt="">GOE 메신저용<span>ZIP ↓</span></a>
   </div>
 
-  <div class="corner video-card" id="feature-video">
+  <a class="corner video-card" id="feature-video" href="https://youtu.be/-YGmh5g8524" data-youtube-id="-YGmh5g8524" aria-haspopup="dialog">
     <div class="thumb">
-      <span class="label"><b>기능 소개 영상</b>공개 예정</span>
+      <span class="play" aria-hidden="true"></span>
+      <span class="label"><b>기능 소개 영상</b>브리티·GOE 메신저 캘린더</span>
+      <span class="time">1:54</span>
     </div>
-  </div>
+  </a>
 </header>
+
+<dialog class="feature-player" id="feature-player" aria-labelledby="feature-player-title">
+  <div class="feature-player-header">
+    <h2 id="feature-player-title">기능 소개 영상</h2>
+    <form method="dialog"><button type="submit" autofocus>닫기</button></form>
+  </div>
+  <div class="feature-player-screen"></div>
+  <a class="feature-player-link" target="_blank" rel="noopener noreferrer">유튜브에서 보기 ↗</a>
+</dialog>
 
 <main>
   <section class="wrap intro fade">
