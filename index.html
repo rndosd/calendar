@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>메신저 캘린더 · 쪽지 속 마감을 달력 한 장에</title>
+<title>메신저 캘린더 · 브리티·GOE 쪽지에서 할 일 찾기</title>
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cover.css">
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" data-skin="minimal">
   <a class="logo" href="#"><img src="img/app.svg" alt="">메신저 캘린더</a>
   <nav>
     <a href="#features">기능</a>
@@ -22,13 +23,31 @@
 
   <div class="shot">
     <div class="titlebar"><img src="img/app.svg" alt="">브리티 메신저 캘린더<span class="ctl"><i class="min"></i><i class="max"></i><i class="x"></i></span></div>
-    <img src="img/hero-tight.webp" alt="메신저 캘린더 화면: 왼쪽에 할 일 목록, 오른쪽에 11월 달력" width="2880" height="1400">
+    <img id="cover-preview" src="img/hero-tight.webp" alt="미니멀 스킨을 적용한 메신저 캘린더 화면" width="2880" height="1400">
   </div>
   <div class="shade"></div>
   <div class="light" aria-hidden="true"></div>
 
-  <h1>쪽지 속 마감을,<br><b>달력 한 장에</b></h1>
-  <p class="sub">브리티·GOE 메신저 쪽지에서 할 일과 날짜를 찾아 달력에 올려 드립니다.</p>
+  <div class="hero-copy">
+    <h1>체험학습 계획서,<br><b>오늘까지였네.</b></h1>
+    <p class="sub">제출, 회신, 연수 신청. 브리티·GOE 쪽지에서 해야 할 일과 기한을 찾아 달력에 올려요.</p>
+    <fieldset class="cover-choices" hidden>
+      <legend>앱 스킨 구경하기</legend>
+      <div class="cover-options">
+        <label><input type="radio" name="cover-skin" value="minimal" data-preview="img/hero-tight.webp" checked><span>미니멀</span></label>
+        <label><input type="radio" name="cover-skin" value="cute" data-preview="img/cover-cute.webp"><span>파스텔</span></label>
+        <label><input type="radio" name="cover-skin" value="retro" data-preview="img/cover-retro.webp"><span>레트로</span></label>
+        <label><input type="radio" name="cover-skin" value="diary" data-preview="img/cover-diary.webp"><span>다이어리</span></label>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="corner get-card" id="get">
+    <div class="get-head"><h2>무료로 받기</h2><span class="ver" data-ver>0.6.3</span></div>
+    <p>Windows 10·11 · 압축만 풀면 바로 실행</p>
+    <a class="main" data-dl="brity" href="https://github.com/rndosd/brity-assistant-public/releases/download/v0.6.3/brity-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/app.svg" alt="">브리티 메신저용<span>ZIP ↓</span></a>
+    <a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/goe-app.svg" alt="">GOE 메신저용<span>ZIP ↓</span></a>
+  </div>
 
   <a class="corner video-card" href="#start">
     <div class="thumb">
@@ -37,31 +56,24 @@
       
     </div>
   </a>
-
-  <div class="corner get-card" id="get">
-    <div class="get-head"><h2>무료로 받기</h2><span class="ver" data-ver>0.6.3</span></div>
-    <p>Windows 10·11 · 압축만 풀면 바로 실행</p>
-    <a class="main" data-dl="brity" href="https://github.com/rndosd/brity-assistant-public/releases/download/v0.6.3/brity-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/app.svg" alt="">브리티 메신저용<span>ZIP ↓</span></a>
-    <a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip"><img src="img/goe-app.svg" alt="">GOE 메신저용<span>ZIP ↓</span></a>
-  </div>
 </header>
 
 <main>
   <section class="wrap intro fade">
-    <p>하루에도 수십 통 오는 쪽지. 그 안에 묻힌 마감을 <em>찾고, 적고, 챙기는 일</em>을 앱이 대신합니다. 선생님은 달력을 보고 끝내기만 하면 돼요.</p>
+    <p>아침에 달력을 열면 <em>오늘 마감부터</em> 보여요. 필요한 양식이 있으면 그 일을 눌러 쪽지와 첨부를 바로 열어요.</p>
   </section>
 
   <section class="wrap rows" id="features">
     <div class="row fade">
-      <div class="text"><div class="k">할 일 목록</div><h3>쪽지를 열지 않아도<br>할 일이 보여요</h3><p>한 시간마다 새 쪽지를 가져와 지남·오늘·이번 주로 나눕니다. 기한이 지난 일은 끝낼 때까지 맨 위에 남아요.</p></div>
+      <div class="text"><div class="k">할 일 목록</div><h3>깜빡한 마감은<br>목록 맨 위에</h3><p>새 쪽지를 한 시간마다 가져와 오늘 할 일과 이번 주 할 일을 나눠 보여 줘요. 이미 기한이 지난 일은 완료할 때까지 맨 위에 남아요.</p></div>
       <div class="pic p1"><img src="img/sidebar.webp" alt="지남·오늘·이번 주로 나뉜 할 일 목록" loading="lazy"></div>
     </div>
     <div class="row fade">
-      <div class="text"><div class="k">쪽지 자세히</div><h3>원문 확인부터<br>답장까지 한자리에서</h3><p>누르면 원문과 첨부가 옆에 열려요. 답장할 말을 적으면 문장을 다듬어 줍니다.</p></div>
+      <div class="text"><div class="k">쪽지 자세히</div><h3>“몇 명까지 받는다고<br>했지?”</h3><p>할 일을 누르면 옆에 쪽지 원문과 첨부가 보여요. 회신할 일이면 답장에 넣을 말만 적고 문장을 다듬을 수 있어요.</p></div>
       <div class="pic p2"><img src="img/detail.webp" alt="쪽지 자세히 화면" loading="lazy"></div>
     </div>
     <div class="row fade">
-      <div class="text"><div class="k">묶어서 편집 · 0.6.3</div><h3>바쁜 주는<br>한 번에 정리해요</h3><p>하루나 일주일의 업무를 모아 날짜·시간·완료를 한 화면에서 고칩니다.</p></div>
+      <div class="text"><div class="k">묶어서 편집</div><h3>이번 주 일정이<br>한꺼번에 바뀌었을 때</h3><p>하루나 일주일의 일정을 한 화면에 펼쳐 두고 날짜와 시간을 고쳐요. 끝낸 일도 그 자리에서 표시할 수 있어요.</p></div>
       <div class="pic p3"><img src="img/batch.webp" alt="업무 묶어서 편집 창" loading="lazy"></div>
     </div>
   </section>
@@ -69,23 +81,23 @@
   <section class="wrap more fade">
     <h2>그 밖에</h2>
     <div class="list">
-      <div><h3>메모로 업무 추가</h3><p>생각나는 대로 적으면 AI가 업무로 나눠 줘요.</p></div>
-      <div><h3>반복 일정</h3><p>매주·격주·매월 하는 일을 한 번만 등록해요.</p></div>
-      <div><h3>학사일정과 급식</h3><p>우리 학교를 고르면 쉬는 날과 오늘 급식이 보여요.</p></div>
-      <div><h3>구글 캘린더</h3><p>연결하면 휴대폰에서도 업무와 알림을 봐요.</p></div>
-      <div><h3>AI에게 맡기기</h3><p>쪽지와 첨부를 Codex나 Claude Code로 보내 초안을 받아요.</p></div>
-      <div><h3>화면 꾸미기</h3><p>열세 가지 꾸미기와 글꼴 중에서 골라요.</p></div>
+      <div><h3>메모로 업무 추가</h3><p>회의에서 나온 할 일을 한꺼번에 적어 두고, AI가 나눈 항목 중 필요한 것만 등록해요.</p></div>
+      <div><h3>반복 일정</h3><p>매주 월요일에 할 일은 한 번만 등록해 두세요.</p></div>
+      <div><h3>학사일정과 급식</h3><p>학교를 고르면 학사일정과 오늘 급식을 달력에서 볼 수 있어요.</p></div>
+      <div><h3>구글 캘린더</h3><p>연동해 두면 학교 밖에서도 휴대폰으로 마감을 확인할 수 있어요.</p></div>
+      <div><h3>AI에게 맡기기</h3><p>계획서 초안이 필요할 때 쪽지와 첨부를 골라 Codex나 Claude Code에 넘겨요.</p></div>
+      <div><h3>화면 꾸미기</h3><p>글꼴과 화면 테마를 고를 수 있어요.</p></div>
     </div>
   </section>
 
   <section class="start" id="start">
     <div class="wrap start-grid fade">
       <div>
-        <h2>받은 뒤에는 이렇게</h2>
+        <h2>처음 실행하기</h2>
         <ol>
-          <li><div><b>압축 풀기</b><span>받은 ZIP을 오른쪽 클릭해 모두 압축 풀기. 풀지 않고 열면 실행되지 않아요.</span></div></li>
-          <li><div><b>실행</b><span>푼 폴더에서 브리티 메신저 캘린더(GOE판은 GOE 메신저 캘린더)를 두 번 누릅니다.</span></div></li>
-          <li><div><b>PC 보호 창 넘기기</b><span>파란 창이 뜨면 추가 정보 → 실행. 그다음은 앱이 연결을 안내해요.</span></div></li>
+          <li><div><b>압축 풀기</b><span>받은 ZIP을 마우스 오른쪽 버튼으로 누르고 ‘모두 압축 풀기’를 선택하세요.</span></div></li>
+          <li><div><b>캘린더 열기</b><span>압축을 푼 폴더에서 브리티 또는 GOE 메신저 캘린더 실행 파일을 두 번 누르세요.</span></div></li>
+          <li><div><b>PC 보호 창이 뜨면</b><span>‘추가 정보’를 누른 뒤 ‘실행’을 선택하세요. 앱을 열면 AI 연결과 메신저 연결 순서가 나와요.</span></div></li>
         </ol>
       </div>
       <a class="yt" href="#start"><span>설치 영상 · 곧 공개</span></a>
@@ -94,16 +106,16 @@
 
   <section class="wrap faq" id="faq">
     <h2>도움말</h2>
-    <details><summary>두 번 눌러도 아무것도 안 열려요</summary><p>ZIP을 풀지 않고 안에서 연 경우가 많아요. 모두 압축 풀기를 한 뒤 푼 폴더에서 여세요.</p></details>
-    <details><summary>메신저를 연결하지 못했다고 나와요</summary><p>메신저에 로그인해 둔 채로 두세요. 브리티는 원 뷰로 써 주세요. 앱에 뜨는 안내를 따르면 대부분 풀려요.</p></details>
-    <details><summary>학교 PC에서 받아지지 않아요</summary><p>학교망이 막는 경우가 있어요. 다른 PC에서 받아 USB로 옮기세요. ZIP 안에 사용 설명서가 있어요.</p></details>
-    <details><summary>쪽지 내용이 밖으로 나가나요</summary><p>분류할 때 연결한 AI로 본문이 보내집니다. 그 밖의 자료는 이 PC에만 둬요.</p></details>
+    <details><summary>실행 파일을 눌러도 안 열려요</summary><p>ZIP의 ‘모두 압축 풀기’를 먼저 하고, 새로 생긴 폴더에서 실행 파일을 열어 보세요.</p></details>
+    <details><summary>메신저 연결이 안 돼요</summary><p>메신저에 로그인한 상태에서 다시 연결해 보세요. 브리티는 환경설정 → 일반 → 뷰 모드에서 ‘원 뷰’를 선택해 주세요.</p></details>
+    <details><summary>학교 PC에서 다운로드가 안 돼요</summary><p>학교에서 GitHub 접속을 제한하는 경우가 있어요. 다른 PC에서 받아 학교에서 허용하는 방법으로 옮길 수 있어요.</p></details>
+    <details><summary>쪽지 내용은 어디로 보내나요?</summary><p>쪽지를 분류할 때 확인된 이름·연락처와 웹 주소를 가린 뒤, 연결한 AI에 제목과 본문을 보내요. 첨부는 PC에 저장하고, 직접 골라 공유할 수 있어요.</p></details>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <p class="big">오늘 받은 쪽지부터<br>달력으로 옮겨 보세요</p>
+    <p class="big">쓰고 있는 메신저에 맞춰 받으세요</p>
     <div class="btns"><a class="main" data-dl="brity" href="https://github.com/rndosd/brity-assistant-public/releases/download/v0.6.3/brity-messenger-calendar-windows-x64-0.6.3.zip">브리티 메신저용 받기</a><a class="sub2" data-dl="goe" href="https://github.com/rndosd/goe-messenger-calendar/releases/download/v0.6.3/goe-messenger-calendar-windows-x64-0.6.3.zip">GOE 메신저용 받기</a></div>
     <div class="links"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://github.com/rndosd/brity-assistant-public">GitHub</a><span>교육청·메신저 회사와 관계없는 개인 제작 앱</span></div>
   </div>
@@ -114,6 +126,7 @@ const shot = location.search.includes('shot');
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
+<script src="cover.js" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {
