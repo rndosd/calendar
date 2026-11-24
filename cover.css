@@ -94,6 +94,7 @@
 .hero[data-skin="retro"] .get-card { border: 3px ridge #fff; }
 .hero[data-skin="diary"] .shot { border: 5px solid #fff9e8; border-radius: 5px; }
 .hero[data-skin="diary"] .hero-copy h1 { font-family: 'Batang', 'Noto Serif KR', serif; }
+.hero[data-skin="diary"] .hero-topic { display: block; }
 .hero[data-skin="diary"] .get-card { border: 1px dashed #876e4d9c; border-radius: 7px; }
 .hero:not([data-skin="minimal"]) .shade { background: linear-gradient(100deg, var(--cover-surface) 0%, transparent 53%); opacity: .53; }
 .hero:not([data-skin="minimal"]) .light { opacity: .16; }

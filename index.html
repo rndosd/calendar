@@ -6,8 +6,8 @@
 <title>메신저 캘린더 · 브리티·GOE 쪽지에서 할 일 찾기</title>
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="cover.css?v=2">
+<link rel="stylesheet" href="style.css?v=features">
+<link rel="stylesheet" href="cover.css?v=3">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
 
   <div class="hero-copy">
     <p class="hero-question">쪽지 정리 귀찮으셨나요?</p>
-    <h1>쌓인 쪽지, 할 일과 일정으로 <b>알아서 정리해 드려요.</b></h1>
+    <h1><span class="hero-topic">쌓인 쪽지,</span> 할 일과 일정으로 <b>알아서 정리해 드려요.</b></h1>
     <p class="sub">브리티·GOE 쪽지에서 제출, 회신, 신청 기한을 찾아 달력에 올려요.</p>
     <fieldset class="cover-choices" hidden>
       <legend>앱 스킨 구경하기</legend>
@@ -69,23 +69,37 @@
 </dialog>
 
 <main>
-  <section class="wrap intro fade">
-    <p>‘금요일까지 참가 인원을 회신해 주세요.’ 이런 쪽지가 오면 <em>금요일 달력에 ‘참가 인원 회신’</em>이 올라와요.</p>
-  </section>
-
-  <section class="wrap rows" id="features">
-    <div class="row fade">
-      <div class="text"><div class="k">할 일 목록</div><h3>오늘 할 일과 지난 마감을 한눈에</h3><p>새 쪽지를 한 시간마다 가져와 오늘과 이번 주 할 일을 나눠 보여 줘요. 지난 마감은 완료할 때까지 목록 위에 남아요.</p></div>
-      <div class="pic p1"><img src="img/sidebar.webp" alt="지남·오늘·이번 주로 나뉜 할 일 목록" loading="lazy"></div>
-    </div>
-    <div class="row fade">
-      <div class="text"><div class="k">쪽지 자세히</div><h3>할 일을 눌러 쪽지 원문 보기</h3><p>달력이나 목록에서 할 일을 누르면 쪽지 원문과 첨부 목록이 함께 보여요. 답장할 말을 적고 ‘다듬기’를 누르면 회신 문장을 써 줘요.</p></div>
-      <div class="pic p2"><img src="img/detail.webp" alt="쪽지 자세히 화면" loading="lazy"></div>
-    </div>
-    <div class="row fade">
-      <div class="text"><div class="k">묶어서 편집</div><h3>일주일 일정을 한 화면에서 고치기</h3><p>하루나 일주일을 골라 날짜와 시간을 바꿔요. 끝낸 일은 같은 화면에서 완료로 표시해요.</p></div>
-      <div class="pic p3"><img src="img/batch.webp" alt="업무 묶어서 편집 창" loading="lazy"></div>
-    </div>
+  <section class="wrap rows" id="features" aria-labelledby="features-title">
+    <h2 class="features-title fade" id="features-title">받은 쪽지부터 끝낸 일까지</h2>
+    <article class="row row-lead fade">
+      <div class="text">
+        <p class="k">쪽지 자동 정리</p>
+        <h3>‘오늘까지 제출’이<br>오늘 할 일로.</h3>
+        <p>쪽지에서 할 일과 기한을 찾아 달력에 올려요. 오늘 할 일과 지난 마감은 목록에서 바로 확인해요.</p>
+        <figure class="task-example" aria-label="쪽지에서 오늘 할 일로 바뀌는 예시">
+          <blockquote>체험학습 계획서는 오늘까지 제출해 주세요.</blockquote>
+          <span class="task-example-arrow" aria-hidden="true">↓</span>
+          <figcaption><strong>오늘</strong> 체험학습 계획서 제출</figcaption>
+        </figure>
+      </div>
+      <div class="pic pic-today"><img src="img/feature-today.webp" width="1380" height="700" alt="오늘 할 일 목록에 표시된 체험학습 계획서 제출과 오른쪽 11월 달력" loading="lazy"></div>
+    </article>
+    <article class="row fade">
+      <div class="text">
+        <p class="k">쪽지 자세히</p>
+        <h3>원문 한 번 열고,<br>답장 초안까지.</h3>
+        <p>할 일을 누르면 쪽지와 첨부 목록이 함께 열려요. 답장할 말을 적고 ‘다듬기’를 누르면 초안을 써 줘요.</p>
+      </div>
+      <div class="pic pic-reply"><img src="img/feature-reply.webp" width="725" height="490" alt="쪽지 자세히에 표시된 답장 초안과 답장 복사 버튼" loading="lazy"></div>
+    </article>
+    <article class="row fade">
+      <div class="text">
+        <p class="k">묶어서 편집</p>
+        <h3>일주일 일정이 바뀌면,<br>한 번에 고쳐요.</h3>
+        <p>하루나 일주일을 골라 날짜와 시간을 바꾸고, 끝낸 일도 같은 화면에서 완료로 표시해요.</p>
+      </div>
+      <div class="pic pic-week"><img src="img/feature-week.webp" width="1600" height="820" alt="묶어서 편집의 일주일 탭과 날짜·시간을 고치는 업무 목록" loading="lazy"></div>
+    </article>
   </section>
 
   <section class="wrap more fade">
