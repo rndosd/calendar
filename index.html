@@ -6,8 +6,8 @@
 <title>메신저 캘린더 · 브리티·GOE 쪽지에서 할 일 찾기</title>
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
-<link rel="stylesheet" href="style.css?v=install">
-<link rel="stylesheet" href="cover.css?v=6">
+<link rel="stylesheet" href="style.css?v=links">
+<link rel="stylesheet" href="cover.css?v=7">
 <link rel="stylesheet" href="demo.css?v=3">
 </head>
 <body>
@@ -203,6 +203,12 @@
 const shot = location.search.includes('shot');
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
+</script>
+<script>
+// 도움말 링크(#faq-…)를 누르거나 그 주소로 들어오면 해당 항목을 펼친다.
+const openFaq = id => { const d = id && id.startsWith("#faq-") && document.querySelector(id); if (d && d.tagName === "DETAILS") d.open = true; };
+document.querySelectorAll("a[href^=\"#faq-\"]").forEach(a => a.addEventListener("click", () => openFaq(a.getAttribute("href"))));
+openFaq(location.hash);
 </script>
 <script src="cover.js?v=3" defer></script>
 <script src="demo.js?v=3" defer></script>

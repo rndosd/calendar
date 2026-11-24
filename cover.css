@@ -107,7 +107,7 @@
 .hero[data-skin="retro"] :is(nav a.get, .get-card a.main) { background: var(--cover-accent); }
 .hero .get-card a.sub2 { background: transparent; box-shadow: 0 0 0 1px var(--cover-line); }
 .hero .get-head .ver { border-color: var(--cover-line); }
-.hero .video-card .thumb { background-image: var(--cover-image); }
+.hero .video-card .thumb { background: #23201b url(img/feature-poster.webp) center / cover; }
 .hero div.video-card:hover { transform: none; }
 
 .feature-player {

@@ -98,7 +98,7 @@ img { display: block; max-width: 100%; height: auto; }
 .start li::before { counter-increment: s; content: counter(s); font-weight: 700; color: var(--accent); }
 .start li b { display: block; font-size: 18px; margin-bottom: 2px; }
 .start li span { color: var(--ink-2); font-size: 15.5px; }
-.yt { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #eae3d5 url(img/install-poster.webp) center / cover; }
+.yt { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #eae3d5 url(img/install-poster-v2.webp) center / cover; }
 .yt::before { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(20, 18, 14, .8)); }
 .yt::after { content: ''; position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6v12l10-6z' fill='%23c2412d'/%3E%3C/svg%3E") 56% 50% / 30px no-repeat; }
 .yt span { position: absolute; left: 20px; bottom: 16px; z-index: 1; color: #fff; font-weight: 700; }
@@ -209,3 +209,8 @@ footer .btns a.main { background: linear-gradient(180deg, #cc4a35, #b83a26); }
 .video-card .thumb > .label { left: 16px; bottom: 14px; color: rgba(255, 255, 255, .72); font-size: 13px; }
 .video-card .thumb > .time { right: 14px; bottom: 14px; color: #fff; font-size: 12px; font-weight: 700; background: rgba(255, 255, 255, .16); border-radius: 6px; padding: 2px 7px; }
 @media (max-width: 900px) { .titlebar { height: 18px; font-size: 8px; gap: 4px; padding-left: 6px; } .titlebar img { width: 9px; } .titlebar .ctl i { width: 20px; } .titlebar .ctl i::before, .titlebar .ctl i::after { transform: scale(.6); } }
+
+/* 글 속 링크·휴대폰 받기 단추 (2026-11-24) */
+.start ol a, .install-note a, .faq details p a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.start ol a:hover, .install-note a:hover, .faq details p a:hover { text-decoration-thickness: 2px; }
+@media (max-width: 900px) { footer .btns a { flex: 1 1 100%; justify-content: center; } }
