@@ -179,6 +179,10 @@
   .cover-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 330px; }
 }
 
+@media (max-width: 360px) {
+  .hero[data-skin="diary"] { --cover-title-size: clamp(23px, 7.5vw, 27px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero, .hero .shot { transition: none; }
 }
