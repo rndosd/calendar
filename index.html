@@ -7,7 +7,7 @@
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="cover.css">
+<link rel="stylesheet" href="cover.css?v=2">
 </head>
 <body>
 
@@ -136,7 +136,7 @@ const shot = location.search.includes('shot');
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
-<script src="cover.js" defer></script>
+<script src="cover.js?v=2" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {
