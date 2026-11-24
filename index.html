@@ -7,7 +7,8 @@
 <meta name="description" content="브리티·GOE 메신저 쪽지에서 할 일과 마감을 찾아 달력에 모아 주는 Windows 앱">
 <link rel="icon" href="img/app.svg">
 <link rel="stylesheet" href="style.css?v=install">
-<link rel="stylesheet" href="cover.css?v=5">
+<link rel="stylesheet" href="cover.css?v=6">
+<link rel="stylesheet" href="demo.css?v=1">
 </head>
 <body>
 
@@ -32,6 +33,7 @@
     <p class="hero-question">쪽지 정리 귀찮으셨나요?</p>
     <h1><span>쌓인 쪽지,</span> <span>할 일과 일정으로</span> <b>알아서 정리해 드려요.</b></h1>
     <p class="sub">브리티·GOE 쪽지의 오늘 마감과 필요한 첨부파일을 달력에서 바로 확인하세요.</p>
+    <a class="hero-demo" href="#demo">샘플로 체험하기 <span aria-hidden="true">↓</span></a>
     <fieldset class="cover-choices" hidden>
       <legend>앱 스킨 구경하기</legend>
       <div class="cover-options">
@@ -69,6 +71,46 @@
 </dialog>
 
 <main>
+  <section class="wrap demo" id="demo" aria-labelledby="demo-title">
+    <h2 id="demo-title">쪽지 세 통, 달력에 정리해 볼까요?</h2>
+    <p class="demo-intro">가상 브리티 쪽지를 가져와 오늘 마감과 첨부 양식을 직접 열어 보세요.</p>
+    <noscript><p>브라우저에서 자바스크립트를 켜면 샘플 쪽지를 체험할 수 있습니다.</p></noscript>
+    <div class="demo-board" hidden>
+      <section class="demo-inbox" aria-labelledby="demo-inbox-title">
+        <header class="demo-panel-header">
+          <div><span class="demo-label">브리티 메신저 · 연습용</span><h3 id="demo-inbox-title">받은 쪽지</h3></div>
+          <span class="demo-count" id="demo-count"></span>
+        </header>
+        <ul class="demo-messages" id="demo-messages"></ul>
+        <button type="button" class="demo-action" id="demo-import">샘플 쪽지 가져오기 <span aria-hidden="true">→</span></button>
+      </section>
+      <section class="demo-calendar" aria-labelledby="demo-calendar-title">
+        <header class="demo-panel-header">
+          <div><span class="demo-label">메신저 캘린더</span><h3 id="demo-calendar-title"></h3></div>
+          <button type="button" class="demo-reset" id="demo-reset" disabled>처음부터</button>
+        </header>
+        <p class="demo-status" id="demo-status" role="status">샘플 쪽지를 가져오면 각 날짜에 마감과 일정이 들어와요.</p>
+        <div class="demo-days" id="demo-days"></div>
+      </section>
+    </div>
+    <dialog class="demo-detail" id="demo-detail" aria-labelledby="demo-detail-title">
+      <header class="demo-detail-header">
+        <div><p class="demo-label" id="demo-detail-date"></p><h3 id="demo-detail-title"></h3></div>
+        <form method="dialog"><button type="submit" class="demo-reset" autofocus>닫기</button></form>
+      </header>
+      <h4>쪽지 원문</h4>
+      <article class="demo-original">
+        <p class="demo-label" id="demo-detail-sender"></p>
+        <p id="demo-detail-body"></p>
+      </article>
+      <details class="demo-attachment" id="demo-attachment">
+        <summary><span>첨부파일</span><strong id="demo-attachment-name"></strong></summary>
+        <pre id="demo-attachment-body"></pre>
+      </details>
+      <button type="button" class="demo-action demo-finish" id="demo-finish">완료</button>
+    </dialog>
+  </section>
+
   <section class="wrap rows" id="features" aria-labelledby="features-title">
     <h2 class="features-title fade" id="features-title">오늘 뭐부터 하지?<br>달력을 열면 먼저 할 일이 보여요.</h2>
     <article class="row fade">
@@ -146,6 +188,7 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.fade').forEach(el => shot ? el.classList.add('in') : io.observe(el));
 </script>
 <script src="cover.js?v=3" defer></script>
+<script src="demo.js?v=1" defer></script>
 <script>
 // 새 판이 나오면 받기 단추를 최신 ZIP으로 바꾼다. 실패하면 위에 적힌 판을 그대로 쓴다.
 (async () => {

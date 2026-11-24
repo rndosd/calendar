@@ -159,7 +159,7 @@
 .cover-options input:focus-visible + span { outline: 2px solid var(--cover-ink); outline-offset: 3px; }
 .cover-options label:hover span { border-color: var(--cover-accent); }
 
-@media (min-width: 901px) and (max-height: 760px) {
+@media (min-width: 901px) and (max-height: 800px) {
   .hero .video-card { width: 240px; }
 }
 
