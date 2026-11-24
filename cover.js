@@ -30,6 +30,17 @@
 })();
 
 (() => {
+  const videoLinks = document.querySelectorAll('a[data-youtube-id]');
+  if (location.protocol === 'file:') {
+    // YouTube embeds require a web referrer, which file previews cannot send.
+    videoLinks.forEach(link => {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.removeAttribute('aria-haspopup');
+    });
+    return;
+  }
+
   const player = document.getElementById('feature-player');
   if (!player?.showModal) return;
 
@@ -55,7 +66,7 @@
     player.showModal();
   }
 
-  document.querySelectorAll('a[data-youtube-id]').forEach(link => link.addEventListener('click', openVideo));
+  videoLinks.forEach(link => link.addEventListener('click', openVideo));
   player.addEventListener('close', () => {
     screen.replaceChildren();
     activeLink?.focus({ preventScroll: true });
