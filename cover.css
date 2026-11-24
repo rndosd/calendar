@@ -80,7 +80,8 @@
 .hero .hero-copy h1, .hero .hero-copy .sub { position: static; }
 .hero-question { margin: 0 0 10px; color: var(--cover-muted); font-size: 17px; font-weight: 700; }
 .hero .hero-copy h1 { max-width: 11em; color: var(--cover-ink); font-size: var(--cover-title-size); line-height: 1.14; }
-.hero .hero-copy h1 b { display: block; color: var(--cover-highlight); }
+.hero .hero-copy h1 > :is(span, b) { display: block; }
+.hero .hero-copy h1 b { color: var(--cover-highlight); }
 .hero .hero-copy .sub { color: var(--cover-muted); margin: 16px 0 0; }
 .hero .shot { left: var(--cover-shot-left); top: var(--cover-shot-top); transform: rotate(var(--cover-angle)); transition: transform .28s ease, top .28s ease, left .28s ease; }
 .hero .shot img { width: 100%; }
@@ -94,7 +95,6 @@
 .hero[data-skin="retro"] .get-card { border: 3px ridge #fff; }
 .hero[data-skin="diary"] .shot { border: 5px solid #fff9e8; border-radius: 5px; }
 .hero[data-skin="diary"] .hero-copy h1 { font-family: 'Batang', 'Noto Serif KR', serif; }
-.hero[data-skin="diary"] .hero-topic { display: block; }
 .hero[data-skin="diary"] .get-card { border: 1px dashed #876e4d9c; border-radius: 7px; }
 .hero:not([data-skin="minimal"]) .shade { background: linear-gradient(100deg, var(--cover-surface) 0%, transparent 53%); opacity: .53; }
 .hero:not([data-skin="minimal"]) .light { opacity: .16; }
@@ -164,7 +164,7 @@
 }
 
 @media (max-width: 900px) {
-  .hero { --cover-title-size: clamp(27px, 7.5vw, 44px); }
+  .hero { --cover-title-size: clamp(23px, 7.5vw, 44px); }
   .hero-copy { position: relative; inset: auto; order: 1; }
   .hero .hero-copy h1 { margin: 0; }
   .hero .hero-copy .sub { margin-top: 15px; }
@@ -177,10 +177,6 @@
 
 @media (max-width: 430px) {
   .cover-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 330px; }
-}
-
-@media (max-width: 360px) {
-  .hero[data-skin="diary"] { --cover-title-size: clamp(23px, 7.5vw, 27px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
