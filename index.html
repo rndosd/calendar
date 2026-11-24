@@ -173,19 +173,21 @@
       </div>
       <div>
         <a class="yt" id="install-video" href="https://youtu.be/zS4569-bP3Y" data-youtube-id="zS4569-bP3Y" data-video-title="설치 영상 · GOE 화면 예시" aria-haspopup="dialog" aria-describedby="install-brity"><span>설치 영상 보기 · GOE 화면 예시</span></a>
-        <p class="install-note" id="install-brity"><strong>브리티를 쓰신다면</strong> 메신저의 환경설정 → 일반 → 뷰 모드에서 <strong>원 뷰</strong>로 바꾼 뒤, 캘린더에서 <strong>브리티 연결</strong>을 누르세요.</p>
-        <p class="install-note"><strong>개인 OpenAI API</strong><br>캘린더는 무료예요. 본인 OpenAI 계정에 직접 충전하고, 쓴 만큼 그 잔액에서 빠져요.<br>쪽지 1,000통 정리에 약 1달러(계산 예시).<br><a href="https://platform.openai.com/settings/organization/billing/overview">결제 설정 ↗</a> · <a href="https://platform.openai.com/api-keys">API 키 발급 ↗</a> · <a href="guide.html#openai-setup">비용과 연결 방법</a></p>
+        <p class="install-note" id="install-brity"><strong>브리티를 쓰신다면</strong> 메신저의 환경설정 → 일반 → 뷰 모드를 <strong>원 뷰</strong>로 바꿔 두세요.</p>
+        <p class="install-note"><strong>AI 연결</strong>에는 본인 OpenAI API 키가 필요해요.<br><a href="https://platform.openai.com/api-keys">API 키 발급 ↗</a> · <a href="#faq-cost">비용은 얼마나 드나요?</a></p>
       </div>
     </div>
   </section>
 
   <section class="wrap faq" id="faq">
     <h2>도움말</h2>
-    <details><summary>ZIP을 눌렀는데 파일만 보여요</summary><p>파일 탐색기에서 <b>다운로드</b> 폴더를 열고, 받은 ZIP을 오른쪽 클릭해 <b>모두 압축 풀기</b>를 누르세요. 새로 생긴 폴더에서 <b>브리티 메신저 캘린더</b> 또는 <b>GOE 메신저 캘린더</b>를 여세요.</p></details>
-    <details><summary>‘Windows의 PC 보호’ 화면이 떠요</summary><p>이 사이트에서 받은 ZIP을 풀어 실행했는지 확인하세요. 다음 화면에서 누를 버튼은 <a href="guide.html#setup">처음 시작 안내</a>의 <b>열기</b>에서 볼 수 있어요.</p></details>
-    <details><summary>캘린더가 켜지자마자 꺼져요</summary><p><a href="#get">무료로 받기</a>에서 같은 메신저용 ZIP을 받아 <b>새 폴더</b>에 풀고 실행해 보세요. 그래도 꺼지면 <a href="https://github.com/rndosd/brity-assistant-public#켜지지-않을-때">진단 도구 사용법</a>을 따라 바탕 화면에 생긴 <b>캘린더-진단.txt</b>를 제작자에게 보내 주세요.</p></details>
-    <details><summary>메신저는 켜져 있는데 쪽지를 못 가져와요</summary><p>캘린더와 같은 종류의 메신저에 먼저 로그인하세요. 브리티는 <b>환경설정 → 일반 → 뷰 모드 → 원 뷰</b>로 바꾼 뒤 캘린더에서 <b>브리티 연결</b>을 누르세요. GOE는 로그인한 창을 그대로 둔 채 <b>GOE 메신저 연결</b>을 누르세요.</p></details>
+    <details id="faq-cost"><summary>비용이 드나요?</summary><p>캘린더는 무료예요. 쪽지를 정리하는 AI 비용만 본인 OpenAI 계정에 충전한 잔액에서 쓴 만큼 빠져요. 처음 충전은 5달러부터 할 수 있고, 쪽지 1,000통 정리에 약 1달러가 들어요(예시, 쪽지 길이와 사용량에 따라 달라요). 남은 잔액은 다른 API 작업에도 쓸 수 있어요.<br><a href="https://platform.openai.com/settings/organization/billing/overview">결제 설정 ↗</a> · <a href="guide.html#openai-setup">비용과 연결 방법</a></p></details>
+    <details><summary>쪽지 내용이 AI 학습에 쓰이나요?</summary><p>아니요. OpenAI는 API로 받은 자료를 AI 학습에 쓰지 않아요(<a href="https://openai.com/enterprise-privacy/">OpenAI 안내 ↗</a>). 캘린더는 날짜와 할 일을 뽑을 때만 쪽지의 제목·보낸 사람·본문·첨부 이름을 <b>내 OpenAI 계정</b>으로 보내고, OpenAI에 대화로 저장하지 않는 설정으로 보내요. 가져온 쪽지는 내 PC에 저장돼요.</p></details>
+    <details><summary>업데이트는 어떻게 하나요?</summary><p>새 업데이트가 나오면 캘린더 위쪽에 <b>업데이트</b> 단추가 보여요. 누르면 캘린더가 잠깐 꺼졌다 다시 켜지고, 업무와 쪽지는 그대로 남아요. 무엇이 바뀌었는지는 업데이트 뒤 처음 켤 때 보여 줘요.</p></details>
+    <details><summary>‘Windows의 PC 보호’ 화면이 떠요</summary><p>개인이 만든 앱이라 처음 실행할 때 한 번 나와요. <b>추가 정보</b>를 누른 뒤 <b>실행</b>을 누르세요.</p></details>
+    <details><summary>메신저는 켜져 있는데 쪽지를 못 가져와요</summary><p>쓰는 메신저에 로그인한 창을 그대로 두고 캘린더에서 <b>브리티 연결</b> 또는 <b>GOE 메신저 연결</b>을 누르세요. 브리티는 뷰 모드가 <b>원 뷰</b>여야 쪽지를 읽을 수 있어요.</p></details>
     <details><summary>쪽지는 가져왔는데 달력에 날짜가 안 떠요</summary><p>위쪽 <b>AI 연결</b>에서 <b>연결 시험 및 저장</b>까지 마치세요. 이미 가져온 쪽지는 <b>할 일</b> 목록 위의 <b>AI로 정리</b>를 눌러 정리할 수 있어요.</p></details>
+    <details><summary>캘린더가 켜지자마자 꺼져요</summary><p>같은 ZIP을 <b>새 폴더</b>에 다시 풀어 실행해 보세요. 그래도 꺼지면 <a href="https://github.com/rndosd/brity-assistant-public#켜지지-않을-때">진단 도구 사용법</a>대로 만든 <b>캘린더-진단.txt</b>를 제작자에게 보내 주세요.</p></details>
   </section>
 </main>
 
